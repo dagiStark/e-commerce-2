@@ -19,13 +19,16 @@ const Cart = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(cartItems),
+      body: JSON.stringify(cartItems), // Send cart items to backend
     })
     if (response.status === 500) return
     const data = await response.json()
     toast.loading('Redirecting...')
-    stripe.redirectToCheckout({sessionId: data.id})
+
+    // Use data.sessionId instead of data.id
+    stripe.redirectToCheckout({sessionId: data.sessionId})
   }
+
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
