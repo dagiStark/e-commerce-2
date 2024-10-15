@@ -6,14 +6,14 @@ import { useState } from 'react';
 import { useStateContext } from '@/context/StateContext';
 
 const ProductDetails = ({ productData, productsData }) => {
-  // Check if productData is null
   const { incQty, decQty, qty, onAdd, setShowCart } = useStateContext();
+  const [index, setIndex] = useState(0);
+
   if (!productData) {
-    return <div>Product not found</div>; // You could also redirect to a 404 page here
+    return <div>Product not found</div>;
   }
 
   const { image, name, details, price } = productData;
-  const [index, setIndex] = useState(0);
 
   const handleBuyNow = () => {
     onAdd(productData, qty);
