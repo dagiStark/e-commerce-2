@@ -23,7 +23,7 @@
     "stripe": "^16.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.25.8",
     "eslint": "^8",
     "eslint-config-next": "^14.2.15"
   }
